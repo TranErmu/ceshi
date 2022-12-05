@@ -1,3 +1,5 @@
+CPP= @echo " G++ $<";g++
+
 # 获取项目文件夹地址
 PROJ_ROOT := $(abspath .)
 # 设置临时文件夹路径
