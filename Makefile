@@ -16,7 +16,11 @@ INCLUDE_PATH := ${INCLUDE_PATH_DIR}
 INC := $(foreach path,${INCLUDE_PATH},-I${path})
 # 设置包含路径
 LIB_PATH = ${PROJ_ROOT}/lib
+# 设置链接库参数
+LDFLAG = $(foreach path,${LIB_PATH},-L${path})
 # 设置编译参数
+CFLAG = -std=c++11
+# 设置项目目标依赖物
 SRC := ${PROJ_ROOT}/src/*.cpp
 SRC := $(wildcard ${SRC})
 OBJ := $(patsubst ${SOURCE_PATH}/%.cpp,${TMP_PATH}/%.o,${SRC})
