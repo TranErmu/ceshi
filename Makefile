@@ -3,7 +3,7 @@ CPP= @echo " G++ $<";g++
 # 获取项目文件夹地址
 PROJ_ROOT := $(abspath .)
 # 设置临时文件夹路径
-TMP_PATH = ${PROJ_ROOT}./tmp
+TMP_PATH = ${PROJ_ROOT}/.tmp
 # 设置项目名称及输出位置
 TARGET_NAME = ceshi
 TARGET_PATH = ${PROJ_ROOT}/bin
@@ -13,7 +13,7 @@ SOURCE_PATH = ${PROJ_ROOT}/src
 # 设置头文件包含路径
 INCLUDE_PATH_DIR := ${PROJ_ROOT}/include
 INCLUDE_PATH := ${INCLUDE_PATH_DIR}
-INC := $(foreach.path,${INCLUDE_PATH},-I${path})
+INC := $(foreach path,${INCLUDE_PATH},-I${path})
 # 设置包含路径
 LIB_PATH = ${PROJ_ROOT}/lib
 # 设置编译参数
@@ -22,7 +22,7 @@ SRC := $(wildcard ${SRC})
 OBJ := $(patsubst ${SOURCE_PATH}/%.cpp,${TMP_PATH}/%.o,${SRC})
 
 ${TARGET}:${OBJ}
-	${CPP} ${CFLAG} ${OBJ} -O $@
+	${CPP} ${CFLAG} ${OBJ} -o $@
 
 ${TMP_PATH}/%.o:${SOURCE_PATH}/%.cpp
 	@mkdir -p .tmp
